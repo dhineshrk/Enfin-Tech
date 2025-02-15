@@ -1,0 +1,50 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Apply a dark background and white text */
+  body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Form Styles */
+  form {
+    max-width: 400px;
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  input {
+    background: #444;
+    color: white;
+  }
+  
+  button {
+    background: blue;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: darkblue;
+  }
+  
