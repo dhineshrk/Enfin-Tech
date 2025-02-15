@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -36,36 +36,92 @@ export default function ProfileForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-gray-900 text-white shadow-lg rounded-lg">
-      <h2 className="text-xl font-bold mb-4 text-center">Create Your Profile</h2>
-      {message && <p className="text-green-400 mb-4 text-center">{message}</p>}
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block font-medium">Name</label>
-          <input id="name" {...register("name")} className="border p-2 w-full rounded bg-gray-800 text-white focus:ring-2 focus:ring-blue-500" placeholder="Enter your name" />
-          <p className="text-red-400 text-sm">{errors.name?.message}</p>
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Create Your Profile</h2>
+      {message && <p style={styles.successMessage}>{message}</p>}
+      <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
+        <div style={styles.formGroup}>
+          <label style={styles.label} htmlFor="name">Name</label>
+          <input id="name" {...register("name")} style={styles.input} placeholder="Enter your name" />
+          <p style={styles.error}>{errors.name?.message}</p>
         </div>
 
-        <div>
-          <label htmlFor="email" className="block font-medium">Email</label>
-          <input id="email" {...register("email")} className="border p-2 w-full rounded bg-gray-800 text-white focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" />
-          <p className="text-red-400 text-sm">{errors.email?.message}</p>
+        <div style={styles.formGroup}>
+          <label style={styles.label} htmlFor="email">Email</label>
+          <input id="email" {...register("email")} style={styles.input} placeholder="Enter your email" />
+          <p style={styles.error}>{errors.email?.message}</p>
         </div>
 
-        <div>
-          <label htmlFor="phone" className="block font-medium">Phone (Optional)</label>
-          <input id="phone" {...register("phone")} className="border p-2 w-full rounded bg-gray-800 text-white focus:ring-2 focus:ring-blue-500" placeholder="Enter your phone number" />
-          <p className="text-red-400 text-sm">{errors.phone?.message}</p>
+        <div style={styles.formGroup}>
+          <label style={styles.label} htmlFor="phone">Phone (Optional)</label>
+          <input id="phone" {...register("phone")} style={styles.input} placeholder="Enter your phone number" />
+          <p style={styles.error}>{errors.phone?.message}</p>
         </div>
 
-        <div>
-          <label htmlFor="password" className="block font-medium">Password</label>
-          <input id="password" type="password" {...register("password")} className="border p-2 w-full rounded bg-gray-800 text-white focus:ring-2 focus:ring-blue-500" placeholder="Enter a strong password" />
-          <p className="text-red-400 text-sm">{errors.password?.message}</p>
+        <div style={styles.formGroup}>
+          <label style={styles.label} htmlFor="password">Password</label>
+          <input id="password" type="password" {...register("password")} style={styles.input} placeholder="Enter a strong password" />
+          <p style={styles.error}>{errors.password?.message}</p>
         </div>
 
-        <button type="submit" className="bg-blue-600 text-white p-2 rounded w-full hover:bg-blue-700 focus:ring-2 focus:ring-blue-500">Submit</button>
+        <button type="submit" style={styles.button}>Submit</button>
       </form>
     </div>
   );
 }
+
+const styles = {
+  container: {
+    maxWidth: "400px",
+    margin: "50px auto",
+    padding: "20px",
+    backgroundColor: "#ffffff",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+    borderRadius: "8px",
+    textAlign: "center",
+  },
+  heading: {
+    fontSize: "20px",
+    fontWeight: "bold",
+    marginBottom: "15px",
+  },
+  successMessage: {
+    color: "green",
+    fontWeight: "bold",
+    marginBottom: "15px",
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+  },
+  formGroup: {
+    textAlign: "left",
+  },
+  label: {
+    display: "block",
+    fontWeight: "bold",
+    marginBottom: "5px",
+  },
+  input: {
+    width: "100%",
+    padding: "8px",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    fontSize: "14px",
+  },
+  error: {
+    color: "red",
+    fontSize: "12px",
+    marginTop: "5px",
+  },
+  button: {
+    backgroundColor: "#007bff",
+    color: "white",
+    padding: "10px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    fontSize: "16px",
+  },
+};
